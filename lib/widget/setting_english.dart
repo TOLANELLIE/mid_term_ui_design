@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mid_term_ui_design/style/color.dart';
 import 'package:mid_term_ui_design/widget/small_text.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
-class SettingEnglish extends StatelessWidget {
+class SettingEnglish extends StatefulWidget {
   const SettingEnglish({
     super.key,
     required this.tittle,
@@ -16,6 +17,56 @@ class SettingEnglish extends StatelessWidget {
   final Color colorIcon;
   final Color color;
 
+  @override
+  State<SettingEnglish> createState() => _SettingEnglishState();
+}
+
+class _SettingEnglishState extends State<SettingEnglish> {
+  String defaultLanguges = 'English   ';
+
+  Widget dropDownList() {
+    return DropdownButton(
+      focusColor: c1,
+      value: defaultLanguges,
+      icon: Icon(
+        PhosphorIcons.regular.caretDown,
+        size: 20,
+      ),
+      iconDisabledColor: c1,
+      iconEnabledColor: c1,
+      underline: Container(
+        color: Colors.transparent,
+      ),
+      borderRadius: BorderRadius.circular(10),
+      onChanged: (String? value) {
+        setState(
+          () {
+            defaultLanguges = value!;
+          },
+        );
+      },
+      items: [
+        DropdownMenuItem<String>(
+          value: 'English   ',
+          child: Smalltext(
+            text: 'English   ',
+            color: Colors.grey.shade500,
+            size: 20,
+          ),
+        ),
+        DropdownMenuItem<String>(
+          value: 'Khmer   ',
+          child: Smalltext(
+            text: 'Khmer   ',
+            color: Colors.grey.shade500,
+            size: 20,
+          ),
+        ),
+      ],
+    );
+  }
+
+  //
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -39,12 +90,12 @@ class SettingEnglish extends StatelessWidget {
                   padding: const EdgeInsets.all(5),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: color.withOpacity(0.3),
+                    color: widget.color.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: Icon(
-                    leadingIcon,
-                    color: colorIcon,
+                    widget.leadingIcon,
+                    color: widget.colorIcon,
                     size: 20,
                   ),
                 ),
@@ -54,7 +105,7 @@ class SettingEnglish extends StatelessWidget {
 
                 //Title
                 Smalltext(
-                  text: tittle,
+                  text: widget.tittle,
                   color: Colors.grey.shade500,
                   size: 20,
                 ),
@@ -67,11 +118,7 @@ class SettingEnglish extends StatelessWidget {
             color: Colors.transparent,
             child: Row(
               children: [
-                Smalltext(
-                  text: 'English',
-                  color: Colors.grey.shade500,
-                  size: 20,
-                ),
+                dropDownList(),
 
                 //
                 IconButton(

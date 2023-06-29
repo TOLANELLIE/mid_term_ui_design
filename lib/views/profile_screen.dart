@@ -25,28 +25,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     //
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
-        child: Stack(
-          children: [
-            //profile background
-            Container(
-              height: 150,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    c2.withOpacity(0.9),
-                    c2,
-                    c1,
-                  ],
+        child: SingleChildScrollView(
+          child: Stack(
+            children: [
+              //profile background
+              Container(
+                height: 150,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      c2.withOpacity(0.9),
+                      c2,
+                      c1,
+                    ],
+                  ),
                 ),
               ),
-            ),
 
-            //
-            SingleChildScrollView(
-              child: Column(
+              //
+              Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -234,8 +235,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   SizedBox(height: height * 0.10),
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

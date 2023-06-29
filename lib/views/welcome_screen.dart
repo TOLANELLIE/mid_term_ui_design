@@ -53,7 +53,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
             //Big text
             const Bigtext(
-              text: 'Let\'s get stated',
+              text: 'Let\'s get started',
               color: Colors.black,
             ),
             SizedBox(

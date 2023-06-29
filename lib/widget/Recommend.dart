@@ -56,13 +56,14 @@ class _RecommendTripState extends State<RecommendTrip> {
               ),
 
               //
-              Container(
-                color: Colors.transparent,
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(10),
-                child: Positioned(
-                  right: 10,
-                  top: 10,
+              Positioned(
+                child: Container(
+                  margin: const EdgeInsets.only(
+                    top: 20,
+                    left: 20,
+                    right: 20,
+                  ),
+                  color: Colors.transparent,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

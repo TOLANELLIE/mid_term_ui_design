@@ -23,6 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     //
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
